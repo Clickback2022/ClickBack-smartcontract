@@ -11,6 +11,8 @@ Sections below describes the following :
 - [Overview](#overview)
 - [How to deploy](#deployment)
 - [Audit scope](#audit-scope)
+- [SmartContract_Audit](#SmartContract_Audit)
+
 
 ## Overview
 
