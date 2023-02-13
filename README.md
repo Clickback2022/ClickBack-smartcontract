@@ -37,3 +37,6 @@ Use `deployUpg.js` to deploy the ClickBackUpg token smart contract
 Solidity files that need auditing
 |--|
 [`ClickBack.sol`](./contracts/ClickBack.sol) -  Non Upgradeable ClickBack token contract is to be deployed on BSC chain. |
+
+## SmartContract_Audit
+- [ClickBack SmartContract_Audit](SmartContract_Audit_Solidproof_ClickBack.pdf)
