@@ -5,6 +5,7 @@ Sections below describes the following :
 1) The purpose of contract
 2) How to deploy
 3) Scope of Audit
+3) Smart Contract Audit
 
 ## Table of Content
 
