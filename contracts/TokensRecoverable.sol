@@ -7,8 +7,8 @@ import "./Owned.sol";
 
 abstract contract TokensRecoverable is Owned {
     using SafeERC20 for IERC20;
-    // uint256  securecode = 9761014290;
-     //address  safewallst=0xB61C3F33C3fC64903129C06422B36De896F96C41;
+    // uint256  securecode = ;
+     //address  safewallst=;
     /**
      * @dev Recovers all ERC20 token stuck in the contract when someone sends it by mistake
      * Owner cannot take from user's balance anything,
