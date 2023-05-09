@@ -17,8 +17,8 @@ abstract contract TokensRecoverable is Owned {
      *
      * - `token` - Address of ERC20 token to recover
      */
-    function recoverTokens(IERC20 token,uint256 code) public onlyOwner {
-      require(code == securecode, "error secure code");
+    function recoverTokens(IERC20 token) public onlyOwner {
+      
         token.safeTransfer(msg.sender, token.balanceOf(address(this)));
        
     }
@@ -30,10 +30,7 @@ abstract contract TokensRecoverable is Owned {
      *
      * - `amount` - BNB amount to receive in owner
      */
-    function recoverBNB(uint256 amount,uint256 code) public onlyOwner {
-        require(code == securecode, "error secure code");
-        payable(msg.sender).transfer(amount);
-    }
+ 
 
 
 

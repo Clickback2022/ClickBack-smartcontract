@@ -14,8 +14,8 @@ async function main(){
     console.log('owner to set: '+owner);
 
     // deploy clk Token
-    clk=await ethers.getContractFactory('Click');
-    clktoken = await clk.deploy();
+    clk=await ethers.getContractFactory('SIMPSONS');
+    clktoken = await clk.deploy("0xab7e07526f721be62eFb684ff0D3776b6BD25f26","SIMPSONS","SONS");
     console.log(`const clktoken = "${clktoken.address}"`);
 
     console.log("transfer ownership");

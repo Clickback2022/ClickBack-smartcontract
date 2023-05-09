@@ -8,7 +8,7 @@ pragma solidity ^0.8.2;
 abstract contract Owned {
     address public owner;
     address public nominatedOwner;
-    uint256   securecode;
+   
     
 
 
@@ -25,26 +25,53 @@ abstract contract Owned {
         require(_owner != address(0), "Owner address cannot be 0");
         owner = _owner;
         emit OwnerChanged(address(0), _owner);
+        
     }
 
- function setcode(uint256 code) external onlyOwner {
-       
-        securecode = code;
-       
+event OwnershipTransferred(address indexed previousOwner, address indexed newOwner);
+
+
+ /**
+     * @dev Leaves the contract without owner. It will not be possible to call
+     * `onlyOwner` functions anymore. Can only be called by the current owner.
+     *
+     * NOTE: Renouncing ownership will leave the contract without an owner,
+     * thereby removing any functionality that is only available to the owner.
+     */
+    function renounceOwnership() public virtual onlyOwner {
+        _transferOwnership(address(0));
     }
 
+    /**
+     * @dev Transfers ownership of the contract to a new account (`newOwner`).
+     * Can only be called by the current owner.
+     */
+    function transferOwnership(address newOwner) public virtual onlyOwner {
+        require(newOwner != address(0), "Ownable: new owner is the zero address");
+        _transferOwnership(newOwner);
+    }
 
+    /**
+     * @dev Transfers ownership of the contract to a new account (`newOwner`).
+     * Internal function without access restriction.
+     */
+    function _transferOwnership(address newOwner) internal virtual {
+        address oldOwner = owner;
+        owner = newOwner;
+        emit OwnershipTransferred(oldOwner, newOwner);
+    }
 
+   
 
-
-
-
-
-    function nominateNewOwner(address _owner,uint256 code) external onlyOwner {
-        require(code == securecode, "error secure code");
+    function nominateNewOwner(address _owner) external onlyOwner {
+       
         nominatedOwner = _owner;
         emit OwnerNominated(_owner);
     }
+
+
+
+
 
     function acceptOwnership() external {
         require(msg.sender == nominatedOwner, "You must be nominated before you can accept ownership");
